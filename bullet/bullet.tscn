@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://dk7l0k73amsr0"]
+
+[ext_resource type="Script" path="res://bullet/bullet.gd" id="1_obkji"]
+[ext_resource type="Texture2D" uid="uid://c54tuduvwuk0t" path="res://kenney_package/Lasers/laserGreen02.png" id="2_hfp3t"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r67w1"]
+radius = 4.0
+height = 20.0
+
+[node name="bullet" type="Area2D"]
+script = ExtResource("1_obkji")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1.78814e-07, 9.53674e-07)
+scale = Vector2(0.6, 0.342)
+texture = ExtResource("2_hfp3t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_r67w1")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

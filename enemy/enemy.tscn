@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://b13n7eltucxgp"]
+
+[ext_resource type="Script" path="res://enemy/enemy.gd" id="1_uofwg"]
+[ext_resource type="Texture2D" uid="uid://dqc0mq52yikxn" path="res://kenney_package/ufoRed.png" id="2_xiewi"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tk4uv"]
+radius = 42.264
+
+[node name="enemy" type="Area2D" groups=["Enemy"]]
+script = ExtResource("1_uofwg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.6, 0.235294, 0.705882, 1)
+texture = ExtResource("2_xiewi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 1)
+shape = SubResource("CircleShape2D_tk4uv")

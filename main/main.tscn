@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://cgicv6l674oth"]
+
+[ext_resource type="Texture2D" uid="uid://beqdl7441mh7y" path="res://kenney_package/playerShip1_blue.png" id="1_p67t5"]
+[ext_resource type="Script" path="res://player.gd" id="2_xeali"]
+[ext_resource type="PackedScene" uid="uid://b13n7eltucxgp" path="res://enemy/enemy.tscn" id="3_ukr48"]
+[ext_resource type="Texture2D" uid="uid://c26dpoe187pww" path="res://icon.svg" id="4_onw8i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e0few"]
+size = Vector2(122, 123)
+
+[node name="main" type="Node2D"]
+
+[node name="player" type="Sprite2D" parent="."]
+position = Vector2(519, 547)
+texture = ExtResource("1_p67t5")
+script = ExtResource("2_xeali")
+
+[node name="muzzle" type="Marker2D" parent="player"]
+position = Vector2(0, -90)
+
+[node name="enemy" parent="." instance=ExtResource("3_ukr48")]
+position = Vector2(650, 151)
+hp = 1.0
+
+[node name="amiguinho" type="Area2D" parent="."]
+position = Vector2(664, 344)
+
+[node name="Sprite2D" type="Sprite2D" parent="amiguinho"]
+texture = ExtResource("4_onw8i")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="amiguinho"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_e0few")
+metadata/_edit_lock_ = true
+
+[node name="enemy2" parent="." instance=ExtResource("3_ukr48")]
+speed = 50.0
