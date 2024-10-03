@@ -7,8 +7,8 @@ var pos_x_left_limit = 0
 var pos_x_right_limit = 1152
 var score_worth = 1
 
-const coin = preload("res://coin/coin.tscn")
-var coin_chance = 10
+const coin_prefab = preload("res://coin/coin.tscn")
+var coin_chance = 100
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -28,5 +28,10 @@ func _process(delta: float) -> void:
 func take_damage():
 	hp -= 1
 	if hp <= 0:
+		var coin_drop_chance = randf_range(0, 100)
+		if coin_drop_chance < coin_chance:
+			var c = coin_prefab.instantiate()
+			get_tree().root.get_child(0).add_child(c)
+			c.position = global_position
 		GameManager.score_change()
 		queue_free()

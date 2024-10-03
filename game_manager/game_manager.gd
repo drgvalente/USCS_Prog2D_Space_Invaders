@@ -7,14 +7,17 @@ var enemy_current_cooldown = 0
 const hud_preload = preload("res://hud/hud.tscn")
 var hud
 var lbl_score
+var lbl_gold
 
 var score = 0
+var gold = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	hud = hud_preload.instantiate()
 	get_tree().root.get_child(0).add_child(hud)
 	lbl_score = hud.get_node("lbl_score")
+	lbl_gold = hud.get_node("lbl_gold")
 	pass # Replace with function body.
 
 
@@ -34,3 +37,8 @@ func score_change():
 	score += 1
 	lbl_score.text = "Points: " + str(score)
 	pass
+
+func gold_change(g):
+	gold += g
+	lbl_gold.text = "Gold: " + str(gold)
+	

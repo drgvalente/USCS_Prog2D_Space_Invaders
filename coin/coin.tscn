@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://0ot7g0r3wbu8"]
+[gd_scene load_steps=4 format=3 uid="uid://0ot7g0r3wbu8"]
 
 [ext_resource type="Texture2D" uid="uid://cscvmdinut558" path="res://coin/coin.png" id="1_nmthu"]
+[ext_resource type="Script" path="res://coin/coin.gd" id="1_qxsgq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bgrcm"]
 radius = 15.1327
 
-[node name="coin" type="Area2D"]
+[node name="coin" type="Area2D" groups=["Coins"]]
+script = ExtResource("1_qxsgq")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.2, 0.19)

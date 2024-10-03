@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://cgicv6l674oth"]
+[gd_scene load_steps=5 format=3 uid="uid://cgicv6l674oth"]
 
-[ext_resource type="Texture2D" uid="uid://beqdl7441mh7y" path="res://kenney_package/playerShip1_blue.png" id="1_p67t5"]
-[ext_resource type="Script" path="res://player.gd" id="2_xeali"]
+[ext_resource type="PackedScene" uid="uid://cxfj76shgnfq7" path="res://player/player.tscn" id="3_5wdh5"]
 [ext_resource type="PackedScene" uid="uid://b13n7eltucxgp" path="res://enemy/enemy.tscn" id="3_ukr48"]
 [ext_resource type="Texture2D" uid="uid://c26dpoe187pww" path="res://icon.svg" id="4_onw8i"]
 
@@ -9,14 +8,6 @@
 size = Vector2(122, 123)
 
 [node name="main" type="Node2D"]
-
-[node name="player" type="Sprite2D" parent="."]
-position = Vector2(519, 547)
-texture = ExtResource("1_p67t5")
-script = ExtResource("2_xeali")
-
-[node name="muzzle" type="Marker2D" parent="player"]
-position = Vector2(0, -90)
 
 [node name="enemy" parent="." instance=ExtResource("3_ukr48")]
 position = Vector2(650, 151)
@@ -35,4 +26,8 @@ shape = SubResource("RectangleShape2D_e0few")
 metadata/_edit_lock_ = true
 
 [node name="enemy2" parent="." instance=ExtResource("3_ukr48")]
+position = Vector2(38, 25)
 speed = 50.0
+
+[node name="player" parent="." instance=ExtResource("3_5wdh5")]
+position = Vector2(400, 500)
