@@ -26,7 +26,7 @@ shape = SubResource("RectangleShape2D_e0few")
 metadata/_edit_lock_ = true
 
 [node name="enemy2" parent="." instance=ExtResource("3_ukr48")]
-position = Vector2(38, 25)
+position = Vector2(61, 220)
 speed = 50.0
 
 [node name="player" parent="." instance=ExtResource("3_5wdh5")]

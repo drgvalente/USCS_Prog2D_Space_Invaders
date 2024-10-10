@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://cb8ru5fgrw5ni"]
+
+[ext_resource type="Script" path="res://enemy_bullet/enemy_bullet.gd" id="1_cqv6t"]
+[ext_resource type="Texture2D" uid="uid://cerws450wibo8" path="res://kenney_package/Lasers/laserRed08.png" id="1_exidn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h2jkg"]
+radius = 8.0
+
+[node name="enemy_bullet" type="Area2D"]
+script = ExtResource("1_cqv6t")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_exidn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_h2jkg")
