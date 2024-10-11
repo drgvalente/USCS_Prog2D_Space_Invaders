@@ -50,6 +50,7 @@ func player_dead():
 
 
 func _on_timer_timeout() -> void:
+	# destruir todos os inimigos
 	print("respawn player")
 	var p = player.instantiate()
 	get_tree().root.get_child(1).add_child(p)
