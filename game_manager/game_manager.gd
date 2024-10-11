@@ -12,6 +12,9 @@ var lbl_gold
 var score = 0
 var gold = 0
 
+const player = preload("res://player/player.tscn")
+@onready var timer = $Timer
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	hud = hud_preload.instantiate()
@@ -42,3 +45,13 @@ func gold_change(g):
 	gold += g
 	lbl_gold.text = "Gold: " + str(gold)
 	
+func player_dead():
+	timer.start()
+
+
+func _on_timer_timeout() -> void:
+	print("respawn player")
+	var p = player.instantiate()
+	get_tree().root.get_child(1).add_child(p)
+	p.position = Vector2(400, 500)
+	pass # Replace with function body.

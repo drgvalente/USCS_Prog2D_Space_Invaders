@@ -3,7 +3,8 @@ extends Area2D
 var speed = 5
 var bullet_prefab = preload("res://bullet/bullet.tscn")
 @onready var muzzle: Marker2D = $muzzle
-#var muzzle: Marker2D
+
+var hp = 5
 
 
 # Called when the node enters the scene tree for the first time.
@@ -29,7 +30,14 @@ func _process(delta: float) -> void:
 		owner.add_child(b)
 		b.position = muzzle.global_position
 	pass
+
+func take_damage(dmg):
+	hp -= dmg
+	if hp <= 0:
+		GameManager.player_dead()
+		queue_free()
 	
+		
 
 func _on_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Coins"):

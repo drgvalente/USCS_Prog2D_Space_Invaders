@@ -13,8 +13,8 @@ var coin_chance = 100
 var player
 @onready var bullet_prefab = preload("res://enemy_bullet/enemy_bullet.tscn")
 var shot_cd = 10
-var shot_time = 10
-var shot_rate = 100
+var shot_time = 0
+var shot_rate = 50
 var shot_min_distance = 5
 
 # Called when the node enters the scene tree for the first time.
@@ -35,15 +35,15 @@ func _process(delta: float) -> void:
 	translate(Vector2.RIGHT * speed * delta)
 	
 	shot_time += delta
-	if shot_time >= shot_cd:
+	if shot_time >= shot_cd and player != null:
 		var x_distance = abs(player.position.x - position.x)
 		if x_distance < shot_min_distance:
+			shot_time = 0
 			var die = randf_range(0, 100)
 			if die <= shot_rate:
 				var b = bullet_prefab.instantiate()
 				get_tree().get_root().get_child(1).add_child(b)
 				b.position = global_position
-				print(b)
 				pass
 
 func take_damage():
